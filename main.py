@@ -7,8 +7,17 @@ def main():
     num_words = get_num_words(text)
     chars_dict = get_char_count(text)
     sorted_chars = get_sorted_char_count(chars_dict)
-    print(f"{num_words} words found in the document")
-    print(sorted_chars)
+
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}")
+    print("----------- Word Count ----------")
+    print(f"Found {num_words} total words")
+    print("--------- Character Count -------")
+
+    for char in sorted_chars:
+        print(f'{char["character"]}: {char["count"]}')
+
+    print("============= END ===============")
 
 def get_book_text(path):
     with open(path) as f:
