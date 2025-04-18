@@ -19,11 +19,17 @@ def get_sorted_char_count(chars):
     char_list = []
 
     for char in chars:
-        new_dict = { char: chars[char] }
-        char_list.append(new_dict)
+        if char.isalpha():
+            new_dict = {}
+            new_dict["character"] = char
+            new_dict["count"] = chars[char]
+            char_list.append(new_dict)
 
-    char_list.sort()
-    for letter in char_list:
-        if letter.isalpha():
-            print(letter)
+    char_list.sort(reverse=True, key=sort_on)
 
+    print(char_list)
+
+    return char_list
+
+def sort_on(dict):
+    return dict["count"]
